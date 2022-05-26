@@ -1,0 +1,239 @@
+//CSS Variables
+:root {
+  --background-colr: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --primary-color: rgb(255, 0, 86);
+  --text-color: #0a0a0a;
+  --text-ligt: #575757;
+  --font-size: 16px;
+  --animation-speed: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//SASS FUNC
+@function getAnimationDuration($duration: number) {
+  @return calc($duration * var(--animation-speed));
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: "Roboto", sans-serif;
+  padding-top: 55px;
+  background-color: var(--background-light);
+}
+
+//NavBar
+a {
+  text-decoration: none;
+}
+
+//the @import "partials/hero-section.scss" contains heroSection styles
+@import "partials/hero-section.scss";
+//the @import "partials/navbar.scss" contains navbar/sidebar styles
+@import "partials/navbar.scss";
+
+//animations for sidebar - slideInLeft
+@import "partials/animations.scss";
+.container {
+  padding-inline: 25vw;
+}
+/*-----------------END of NAVBAR COMPONENT------------*/
+
+/*-----------------BEGINNING  of MAIN/PAGE FROM APP.JS <<<HeroSection.js>>>>COMPONENT------------*/
+
+//HeroSection
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 3vw;
+  &.d-block {
+    display: block;
+  }
+  .title {
+    color: var(--text-color);
+    font-size: 2.5em;
+    margin-bottom: 0.25em;
+    font-weight: 900;
+  }
+  .info {
+    color: var(--text-ligt);
+    font-size: 1em;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 1.25em;
+  }
+  .col {
+    width: 50%;
+  }
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.75em 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  &.hover {
+    box-shadow: 0 1px 3px var(--shadow-color);
+  }
+}
+
+//...
+.main {
+  padding-block: 3vw;
+}
+/*-----------------END of HEROSECTION COMPONENT------------*/
+
+/*-----------------BEGINNING  of IMPROVESKILLS. <<<ImproveSkillsjs>>>>COMPONENT------------*/
+@import "partials/improveSkill";
+/*-----------------END of IMPROVESKILL  COMPONENT------------*/
+/*-----------------BEGINNING  of QUOTESECTION. <<<QuoteSection.js>>>>COMPONENT------------*/
+@import "partials/quoteSection";
+/*-----------------END of QUOTESECTION  COMPONENT------------*/
+/*-----------------BEGINNING  of CHEFSECTION. <<<CHEFSection.js>>>>COMPONENT------------*/
+
+@import "partials/chefs-section";
+
+/*-----------------END of CHEFSECTION  COMPONENT------------*/
+/*-----------------BEGINNING  of FOOTER. <<<CFooter.js>>>>COMPONENT------------*/
+@import "partials/footer-section";
+/*-----------------END of footer  COMPONENT------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------BEGINNING  of PREVIOUsSEARCH PAGE. <<<pages/PreviousSearch.js>>>>COMPONENT------------*/
+@import "partials/previousSearchSection";
+/*-----------------END of Previous Search COMPONENT------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------BEGINNING  of RECIPES PAGE. <<<pages/.js>>>>COMPONENT------------*/
+@import "partials/recipes-section";
+/*-----------------END of recipes-section COMPONENT------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------BEGINNING  of SETTINGS PAGE. <<<pages/.js>>>>COMPONENT------------*/
+
+.options-container {
+  box-shadow: 0 5px 10px var(--shadow-color);
+  padding: 1em;
+  border-radius: 5px;
+  border-left: 0.5em solid var(--primary-color);
+  background-color: var(--background-light);
+  margin-top: 1em;
+  display: flex;
+  gap: 1em;
+  .option {
+    height: 3.5em;
+    width: 3.5em;
+    box-shadow: 0 3px 6px var(--shadow-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.light {
+      background-color: #fff;
+    }
+    &.dark {
+      background-color: rgb(29 29 29);
+    }
+    .check {
+      height: 2.5em;
+      width: 2.5em;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+    svg {
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
+}
+
+.btn span {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+.d-block {
+  font-size: 1.75em;
+  color: var(--text-color);
+}
+
+//MEDIA QUERIES
+@media screen and (max-width: 1280px) {
+  .container {
+    padding-inline: 18vw;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .container {
+    padding-inline: 12vw;
+  }
+}
+
+//Nav
+@media screen and (max-width: 768px) {
+  .navbar {
+    .nav-links {
+      display: none;
+    }
+    .sidebar-btn {
+      display: block;
+    }
+  }
+  .section {
+    .col {
+      width: 100%;
+      padding: 0 !important;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+  }
+  .skill-item {
+    display: inline-block;
+    margin: 0.75em;
+    margin-bottom: 1em;
+  }
+  .section.improve-skills .btn {
+    display: block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .chef-card {
+    box-shadow: 0 5px 10px var(--shadow-color);
+  }
+  .container {
+    padding-inline: 6vw;
+  }
+  .footer {
+    grid-template-columns: repeat(4, 1fr);
+    .footer-section:nth-child(1) {
+      grid-column: span 4;
+    }
+    .footer-section:nth-child(2),
+    .footer-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    padding-inline: 3vw;
+  }
+}

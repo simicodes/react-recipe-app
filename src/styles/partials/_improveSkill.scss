@@ -1,0 +1,32 @@
+.section.improve-skills {
+  .col.img {
+    img {
+      width: 100%;
+    }
+  }
+  .col.typography {
+    padding-left: 1em;
+    .skill-item {
+      border-left: 0.2em solid var(--primary-color);
+      margin-bottom: 0.5em;
+      padding: 0.1em 0 0.1em 0.5em;
+      color: var(--text-ligt);
+      font-weight: bold;
+      //making them to come in one after the another:
+      transform: translateX(100%);
+      opacity: 0;
+      //Adding animation to Improve Your Cooking skills items
+      animation: getAnimationDuration(0.5s) slideInRight forwards;
+      //making them to come in one after the another: By using for loops to check the number of items
+      //Adding animation delay for sidebar links
+      @for $i from 2 through 7 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.3}s;
+        }
+      }
+    }
+    .btn {
+      margin-top: 0.75em;
+    }
+  }
+}

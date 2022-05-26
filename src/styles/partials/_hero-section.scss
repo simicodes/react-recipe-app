@@ -1,0 +1,61 @@
+.section.hero {
+  .typography {
+    padding-right: 1em;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.75vw;
+    //Adding styles/animations/transition to customImages: by targeting the class custom-image in the customImage component
+    .custom-image {
+      border-radius: 3px;
+      overflow: hidden;
+      //transform: scale(0.1);
+      transform: scale(0);
+      opacity: 0;
+      animation: getAnimationDuration(0.5s) popOut forwards;
+      //making them to come in a spiral form: By targeting the nth-children. (nth-child)
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(9) {
+        animation-delay: 0.4s;
+      }
+      &:nth-child(8) {
+        animation-delay: 0.5s;
+      }
+      &:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.7s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+    }
+  }
+}
+//CustomImage.js Component
+.custom-image {
+  background-color: red;
+  height: 0;
+  width: 100%;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+img {
+  object-fit: cover;
+}
